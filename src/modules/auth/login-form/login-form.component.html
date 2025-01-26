@@ -1,0 +1,32 @@
+<p-toast [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }"/>
+<div class="login-form">
+  <div class=" max-md:text-center pb-5 pr-3 prose">
+    <h2 class="mb-2 text-3xl font-semibold">Zaloguj się</h2>
+    <p class="text-gray-500">Witamy z powrotem!</p>
+  </div>
+  <form class="flex flex-col gap-5" [formGroup]="loginForm" (ngSubmit)="login()">
+    <div>
+      <label class="text-sm text-blue-950" for="email">E-mail*</label>
+      <input class="w-full" pInputText id="email" placeholder="Wpisz swój adres e-mail" aria-describedby="email"
+             autocomplete="username" formControlName="email"/>
+      <input-error [errors]="loginForm.get('email')?.errors" [touched]="loginForm.get('email')?.touched"/>
+    </div>
+    <div>
+      <label class="text-sm text-blue-950" for="password">Hasło*</label>
+      <p-password [fluid]="true" class="w-full" inputId="password" aria-describedby="password-help"
+                  [toggleMask]="true"
+                  placeholder="Wpisz hasło" autocomplete="current-password" [feedback]="false"
+                  formControlName="password"/>
+      <input-error [errors]="loginForm.get('password')?.errors" [touched]="loginForm.get('password')?.touched"/>
+    </div>
+    <div class="field col-12 text-center">
+      <p-button [disabled]="!loginForm.valid" [fluid]="true" class="w-full font-semibold" severity="primary"
+                type="submit" label="Zaloguj się"/>
+    </div>
+  </form>
+  <div class="pt-5 text-center">
+    <p class="text-gray-500">Nie masz konta? <a class="font-semibold text-blue-800" routerLink="/register">Zarejestruj
+      się</a></p>
+  </div>
+</div>
+

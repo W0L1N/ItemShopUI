@@ -1,0 +1,33 @@
+<div class="register-form">
+  <div class=" max-md:text-center pb-5 pr-3 prose">
+    <h2 class="mb-2 text-3xl font-semibold">Załóż konto</h2>
+  </div>
+  <form class="flex flex-col gap-5" [formGroup]="registerForm" (ngSubmit)="register()">
+    <div>
+      <label class="text-sm text-blue-950" for="fullname">Imię i Nazwisko</label>
+      <input class="w-full" pInputText id="fullname" placeholder="Wpisz swoje imię i nazwisko"
+             aria-describedby="fullname-help" formControlName="fullname"/>
+    </div>
+    <div>
+      <label class="text-sm text-blue-950" for="email">E-mail*</label>
+      <input class="w-full" pInputText id="email" placeholder="Wpisz swój adres e-mail" aria-describedby="email"
+             autocomplete="username" formControlName="email"/>
+      <input-error [errors]="registerForm.get('email')?.errors" [touched]="registerForm.get('email')?.touched"/>
+    </div>
+    <div>
+      <label class="text-sm text-blue-950" for="password">Hasło*</label>
+      <p-password [fluid]="true" class="w-full" id="password" aria-describedby="password-help" [toggleMask]="true"
+                  placeholder="Stwórz hasło" autocomplete="current-password"
+                  [feedback]="false" formControlName="password"/>
+      <input-error [errors]="registerForm.get('password')?.errors" [touched]="registerForm.get('password')?.touched"/>
+    </div>
+    <div class="field text-center">
+      <p-button [disabled]="!registerForm.valid" [fluid]="true" class="w-full font-semibold" severity="primary"
+                type="submit" label="Załóż konto"/>
+    </div>
+  </form>
+  <div class="pt-5 text-center">
+    <p class="text-gray-500">Już posiadasz konto? <a class="font-semibold text-blue-800" routerLink="/login">Zaloguj
+      się</a></p>
+  </div>
+</div>

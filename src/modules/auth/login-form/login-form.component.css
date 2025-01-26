@@ -1,0 +1,11 @@
+:host {
+  height: 100%;
+  display: flex;
+  align-self: center;
+}
+
+.login-form {
+  max-width: 424px;
+  padding: 0 32px 0 32px;
+  align-self: center;
+}

@@ -1,0 +1,16 @@
+.login-page {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.form-section {
+  height: 100%;
+  display: flex;
+}
+.info-section {
+  color: rgba(255, 255, 255, 0.6);
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  background: #55B35D;
+}

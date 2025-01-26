@@ -1,0 +1,5 @@
+@if (errors && touched) {
+  <div *ngFor="let error of Object.keys(errors)">
+    <p-message severity="error" variant="simple" size="small"> {{ getErrorMessage(error, errors[error]) }}</p-message>
+  </div>
+}
