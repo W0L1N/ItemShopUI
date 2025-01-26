@@ -3,6 +3,9 @@ import {NgClass, NgForOf} from '@angular/common';
 import {DataView} from 'primeng/dataview';
 import {Tag} from 'primeng/tag';
 import {Button} from 'primeng/button';
+import {Router} from '@angular/router';
+import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
+import {CreateOfferFormComponent} from '../modules/create-offer-form/create-offer-form.component';
 
 interface Product {
   name: string;
@@ -23,9 +26,28 @@ interface Product {
     Button
   ],
   templateUrl: './item-list.component.html',
-  styleUrl: './item-list.component.css'
+  styleUrl: './item-list.component.css',
+  providers: [DialogService]
 })
 export class ItemListComponent {
+
+  ref: DynamicDialogRef | undefined;
+
+  constructor(public dialogService: DialogService) {
+  }
+
+  openCreateOfferForm() {
+    this.ref = this.dialogService.open(CreateOfferFormComponent, {
+      header: 'Dodaj ofertę',
+      width: '50vw',
+      modal:true,
+      breakpoints: {
+        '960px': '75vw',
+        '640px': '90vw'
+      },
+    });
+  }
+
   products: Product[] = [
     {
       name: 'Product 1',

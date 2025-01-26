@@ -1,16 +1,17 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Menubar} from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
-import {NgOptimizedImage} from '@angular/common';
+import {Button} from 'primeng/button';
 
 @Component({
   selector: 'app-navbar',
   imports: [
     Menubar,
-    NgOptimizedImage
+    Button
   ],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrl: './navbar.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class NavbarComponent implements OnInit {
   items: MenuItem[] | undefined;
@@ -30,5 +31,10 @@ export class NavbarComponent implements OnInit {
         route: '/account'
       }
     ];
+
+  }
+
+  logout() {
+
   }
 }

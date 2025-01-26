@@ -1,7 +1,5 @@
 <p-menubar [model]="items">
   <ng-template #start>
-    <div class="ml-auto">
-    </div>
   </ng-template>
   <ng-template #item let-item let-root="root">
       <a [href]="item.route" class="p-menubar-item-link">
@@ -9,8 +7,9 @@
       </a>
   </ng-template>
   <ng-template #end>
-    <div>
-
+    <div class="pr-12">
+      <p-button
+        label="Wyloguj" (click)="logout()"/>
     </div>
   </ng-template>
 </p-menubar>

@@ -1,4 +1,11 @@
-<div class="w-4/5 justify-self-center">
+<div class="w-4/5 justify-self-center pt-12">
+  <div class="flex w-full justify-between">
+    <h1 class="text-2xl font-semibold">Oferty</h1>
+    <div>
+      <p-button icon="pi pi-plus" class="w-full font-semibold" severity="primary" size="small"
+                type="submit" label="Dodaj ofertę" (onClick)="openCreateOfferForm()"/>
+    </div>
+  </div>
   <p-dataview [value]="products" [rows]="5" [paginator]="true">
     <ng-template #list let-items>
       <div class="grid grid-cols-12 gap-4 grid-nogutter">

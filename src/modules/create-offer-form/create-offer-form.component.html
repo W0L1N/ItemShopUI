@@ -1,0 +1,33 @@
+<div>
+  <form class="flex flex-col gap-5" [formGroup]="offerForm" (ngSubmit)="createOffer()">
+    <div>
+      <label class="text-sm text-blue-950" for="name">Nazwa oferty</label>
+      <input class="w-full" pInputText id="name"
+             aria-describedby="name-help" formControlName="name"/>
+      <input-error [errors]="offerForm.get('name')?.errors" [touched]="offerForm.get('name')?.touched"/>
+    </div>
+    <div>
+      <label class="text-sm text-blue-950" for="description">Opis</label>
+      <input class="w-full" pInputText id="description" aria-describedby="description"
+             autocomplete="description" formControlName="description"/>
+      <input-error [errors]="offerForm.get('description')?.errors" [touched]="offerForm.get('description')?.touched"/>
+    </div>
+
+    <div>
+      <label class="text-sm text-blue-950" for="price">Cena</label>
+      <p-input-number class="w-full" formControlName="price" inputId="price" mode="currency" currency="PLN" locale="pl-PL" />
+      <input-error [errors]="offerForm.get('price')?.errors" [touched]="offerForm.get('price')?.touched"/>
+    </div>
+
+    <div>
+      <p-fileupload mode="basic" name="" [fileLimit]="1" url="https://www.primefaces.org/cdn/api/upload.php" chooseIcon="pi pi-upload" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUploadAuto($event)" [auto]="true" chooseLabel="Browse" />
+    </div>
+
+    <div class="flex justify-between">
+      <p-button class=" font-semibold" severity="secondary"
+                type="submit" label="Anuluj" (onClick)="ref.close()"/>
+      <p-button [disabled]="!offerForm.valid" class="font-semibold" severity="primary"
+                type="submit" label="Dodaj ofertę"/>
+    </div>
+  </form>
+</div>
